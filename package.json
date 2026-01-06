@@ -1,18 +1,65 @@
 {
-  "name": "rollup-ui-lib",
-  "version": "1.0.0",
-  "description": "UI lib was created to study rollup basics",
-  "main": "src/index.js",
-  "scripts": {
-    "build": "rollup src/index.js -o dist/bundle.js -f cjs"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Romiono/rollup-ui-lib.git"
-  },
-  "keywords": [],
-  "author": "Romiono",
-  "license": "ISC",
-  "type": "commonjs",
-  "homepage": "https://github.com/Romiono/rollup-ui-lib#readme"
+    "name": "rollup-ui-lib",
+    "version": "1.0.0",
+    "description": "UI lib was created to study rollup basics",
+    "type": "module",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.js",
+    "types": "./dist/types/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/types/index.d.ts",
+            "import": "./dist/esm/index.js",
+            "require": "./dist/cjs/index.js"
+        },
+        "./ui": {
+            "types": "./dist/types/ui/index.d.ts",
+            "import": "./dist/esm/ui/index.js",
+            "require": "./dist/cjs/ui/index.js"
+        },
+        "./hooks": {
+            "types": "./dist/types/hooks/index.d.ts",
+            "import": "./dist/esm/hooks/index.js",
+            "require": "./dist/cjs/hooks/index.js"
+        }
+    },
+    "files": [
+        "dist"
+    ],
+    "sideEffects": false,
+    "scripts": {
+        "build": "rm -rf dist && rollup --config",
+        "dev": "rollup --config --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Romiono/rollup-ui-lib.git"
+    },
+    "author": "Romiono",
+    "license": "ISC",
+    "homepage": "https://github.com/Romiono/rollup-ui-lib#readme",
+    "peerDependencies": {
+        "react": ">=18.0.0",
+        "react-dom": ">=18.0.0"
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^29.0.0",
+        "@rollup/plugin-json": "^6.1.0",
+        "@rollup/plugin-node-resolve": "^16.0.3",
+        "@rollup/plugin-terser": "^0.4.4",
+        "@rollup/plugin-typescript": "^12.3.0",
+        "@types/node": "^25.0.3",
+        "@types/react": "^19.2.7",
+        "@types/react-dom": "^19.2.3",
+        "@types/rollup-plugin-peer-deps-external": "^2.2.6",
+        "prettier": "^3.7.4",
+        "react": "^19.2.3",
+        "react-dom": "^19.2.3",
+        "rollup": "^4.55.1",
+        "rollup-plugin-dts": "^6.3.0",
+        "rollup-plugin-peer-deps-external": "^2.2.4",
+        "rollup-plugin-postcss": "^4.0.2",
+        "tslib": "^2.8.1",
+        "typescript": "^5.9.3"
+    }
 }
