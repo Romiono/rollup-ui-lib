@@ -8,7 +8,6 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import dts from 'rollup-plugin-dts';
 
 const config: RollupOptions[] = [
-    // Конфиг 1: JavaScript (ESM + CJS) БЕЗ типов
     {
         input: {
             index: 'src/index.ts',
@@ -51,7 +50,7 @@ const config: RollupOptions[] = [
             typescript({
                 tsconfig: './tsconfig.json',
                 compilerOptions: {
-                    declaration: false, // ✅ Типы НЕ здесь
+                    declaration: false,
                 },
                 exclude: ['node_modules/**'],
             }),
@@ -70,7 +69,7 @@ const config: RollupOptions[] = [
         },
 
         output: {
-            dir: 'dist/types', // ✅ Типы в отдельной папке
+            dir: 'dist/types',
             format: 'esm',
             preserveModules: true,
             preserveModulesRoot: 'src',
