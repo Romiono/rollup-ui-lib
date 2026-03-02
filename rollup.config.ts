@@ -59,8 +59,6 @@ const config: RollupOptions[] = [
 
         external: ['react', 'react-dom', 'react/jsx-runtime'],
     },
-
-    // Конфиг 2: TypeScript деклараций (только типы)
     {
         input: {
             index: 'src/index.ts',
